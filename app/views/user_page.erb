@@ -1,0 +1,29 @@
+welcome, <%= @current_user.first_name %>.<br>
+
+want to create an event? cool<br>
+please enter your date in the following format:<br>
+yyyy, mm, dd, hh, min<br> 
+example: 2013, 08, 24, 15, 30<br><br>
+
+<form action="/event/new" method="post" class="new_event">
+  <input type="text" name="name" placeholder="name" autofocus="autofocus">
+  <input type="text" name="location" placeholder="location"> 
+  <input type="text" name="starts_at" placeholder="starts_at"> 
+  <input type="text" name="ends_at" placeholder="ends_at"> 
+  <button type="submit">create event</button>
+</form>
+
+want to see your events? cool.<br><br>
+click an event to edit.<br>
+<ul class="user_event_list">
+  <% @created_events.each do |event| %>
+    <li><a href="/user/event/<%= event.id%>"><%= event.name %></li></a>
+  <% end %>
+</ul>
+
+want to see all of the events? cool.<br><br>
+<ul class="all_events_list">
+  <% @all_events.each do |event| %>
+    <li><a href="/event/<%= event.id %>"><%= event.name %></a></li>
+  <% end %>
+</ul>

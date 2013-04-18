@@ -1,0 +1,11 @@
+<%= @event.name %><br>
+
+edit event:
+
+<form action="/event/edit/<%= @event.id %>" method="post" class="edit_event">
+  <input type="text" name="name" value="<%= @event.name %>">
+  <input type="text" name="location" value="<%= @event.location %>"> 
+  <input type="text" name="starts_at" value="<%= @event.starts_at %>"> 
+  <input type="text" name="ends_at" value="<%= @event.ends_at %>"> 
+  <button type="submit">tweak event</button>  
+</form>
